@@ -1,4 +1,3 @@
-@ -1,123 +0,0 @@
 # Submission Checklist — BR-A (마지막 A)
 
 > pass_conditionbra.md 의 제출 준비 항목을 채운 문서.
