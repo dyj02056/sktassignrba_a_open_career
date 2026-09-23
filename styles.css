@@ -1,0 +1,307 @@
+:root{
+  --bg:#070b0d;
+  --terminal:#0c1417;
+  --line:#284044;
+  --text:#e7f2eb;
+  --muted:#b0c2c0;
+  --green:#99ff5e;
+  --cyan:#57d8df;
+  --amber:#ffc75a;
+  --red:#ff7777;
+}
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;margin:0;background:var(--bg);color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  overflow-x:hidden;
+}
+body{font-family:"IBM Plex Mono","Noto Sans KR",monospace;overflow:hidden}
+
+button,a{font:inherit}
+a{color:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+.terminal{
+  width:min(1200px,calc(100vw - 40px));
+  height:min(760px,calc(100vh - 40px));
+  border:1px solid var(--line);
+  background:linear-gradient(125deg,rgba(87,216,223,.04),transparent 30%),var(--terminal);
+  box-shadow:0 26px 80px #0008;
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+}
+.terminal::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.13) 4px 5px);
+  mix-blend-mode:overlay;
+}
+
+.bar{
+  height:48px;flex-shrink:0;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;color:var(--muted);font-size:.78rem;position:relative;z-index:1;
+}
+.dots{display:flex;gap:7px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--red)}
+.dots i:nth-child(2){background:var(--amber)}
+.dots i:nth-child(3){background:var(--green)}
+.motion{
+  border:0;background:transparent;color:var(--muted);cursor:pointer;
+  text-decoration:underline;text-underline-offset:4px;
+}
+
+.screen{
+  position:absolute;inset:48px 0 0 0;
+  padding:clamp(16px,3vh,32px) clamp(20px,4vw,50px);
+  overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s;
+}
+.screen.active{opacity:1;visibility:visible;transform:translateY(0);z-index:2}
+.screen.leaving{opacity:0;transform:translateY(-10px);visibility:hidden}
+
+.hero{
+  display:grid;
+  align-content:center;
+  min-height:100%;
+  padding-top:clamp(4px, 2vh, 24px);
+}
+
+.prompt{font-size:clamp(.75rem,1.4vw,.95rem);color:var(--green);margin:0 0 12px}
+.prompt::before{content:"jsw@portfolio:~$ ";color:var(--cyan)}
+
+h1,h2,h3,p{margin-top:0}
+
+h1{
+  max-width:940px;
+  font-size:clamp(1.5rem,3.6vw,3.2rem);
+  line-height:1.14;
+  letter-spacing:-.06em;
+  margin-bottom:16px;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+h1 span,h2{color:var(--green);text-shadow:0 0 16px #99ff5e55}
+
+/* 이름 — THINK DEEPLY와 동일 스타일 */
+.name{
+  font-size:clamp(1.8rem,4.5vw,3.4rem);
+  font-weight:600;
+  line-height:1.15;
+  letter-spacing:-.04em;
+  color:var(--green);
+  text-shadow:0 0 16px #99ff5e55;
+  margin:0 0 14px;
+}
+
+.tagline-en{
+  font-size:clamp(1.8rem,4.5vw,3.4rem);
+  font-weight:600;
+  line-height:1.15;
+  letter-spacing:-.04em;
+  color:var(--green);
+  text-shadow:0 0 16px #99ff5e55;
+  margin:0 0 14px;
+}
+
+.tagline-ko{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:clamp(0.9rem,1.3vw,1.05rem);
+  color:var(--text);
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+.role{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:clamp(0.8rem,1.1vw,0.92rem);
+  color:var(--cyan);
+  margin:0 0 20px;
+}
+
+.cursor::after{content:"▋";color:var(--green);margin-left:3px;animation:blink .85s steps(2,end) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.command-list{display:grid;gap:8px;width:min(100%,620px);margin-top:16px}
+.command{
+  display:flex;text-align:left;align-items:center;gap:10px;
+  min-height:42px;padding:0 14px;
+  border:1px solid var(--line);color:var(--text);background:#101c20;
+  cursor:pointer;transition:background .16s,border-color .16s,transform .16s;
+  min-width:0;
+}
+.command:hover{background:#15292b;border-color:var(--green);transform:translateX(5px)}
+.command b{color:var(--green);min-width:0}
+.command small{
+  color:var(--muted);margin-left:auto;
+  min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.hint{color:var(--muted);font-size:.78rem;margin:14px 0 0}
+
+.page-head{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}
+.back{
+  border:0;padding:0;background:transparent;color:var(--cyan);
+  cursor:pointer;font-size:.8rem;margin-bottom:8px;
+  text-decoration:underline;text-underline-offset:4px;
+}
+.label{color:var(--amber);font-size:.83rem;margin-bottom:4px}
+
+.page-head h1{
+  font-size:clamp(1.8rem,3.5vw,3.2rem);
+  line-height:.95;letter-spacing:-.09em;margin-bottom:6px;
+  max-width:none;
+}
+.subtitle{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:clamp(0.95rem,1.3vw,1.15rem);font-weight:800;margin-bottom:0;
+}
+
+/* 본문 (이야기·숫자·대표작·이력서 공통) */
+.story-body{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:clamp(1rem, 1.35vw, 1.15rem);
+  line-height:1.95;
+  color:#dce7e3;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  max-width:720px;
+}
+.story-body p{margin-bottom:2rem}
+
+/* CLI 타이핑 효과 */
+.story-body .cli-line{
+  opacity:0;
+  transform:translateY(4px);
+  animation:cliFadeIn .4s ease forwards;
+}
+.story-body .cli-line::before{
+  content:"> ";
+  color:var(--green);
+}
+@keyframes cliFadeIn{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* 숫자 카드 */
+.numbers-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin:1.5rem 0;
+}
+.num-card{
+  border:1px solid var(--line);
+  background:#101c20;
+  padding:16px;
+  border-radius:2px;
+}
+.num-value{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:clamp(1.4rem,2.4vw,1.9rem);
+  font-weight:600;
+  color:var(--green);
+  margin:0 0 6px;
+  line-height:1.1;
+  text-shadow:0 0 12px #99ff5e44;
+}
+.num-label{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:.88rem;
+  color:var(--text);
+  margin:0 0 6px;
+  font-weight:700;
+}
+.num-source{
+  font-size:.72rem;
+  color:var(--muted);
+  margin:0;
+}
+
+/* 대표작 */
+.work-item{
+  border:1px solid var(--line);
+  background:#101c20;
+  padding:20px;
+  margin:1.5rem 0;
+}
+.work-label{
+  font-size:.75rem;
+  color:var(--amber);
+  margin:0 0 6px;
+  letter-spacing:.08em;
+}
+.work-title{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:1.15rem;
+  color:var(--green);
+  margin:0 0 4px;
+  text-shadow:none;
+}
+.work-sub{
+  font-size:.9rem;
+  color:var(--muted);
+  margin:0 0 6px;
+}
+.work-meta{
+  font-size:.8rem;
+  color:var(--cyan);
+  margin:0 0 12px;
+}
+.work-desc{
+  font-size:.92rem;
+  line-height:1.7;
+  color:#dce7e3;
+  margin:0;
+}
+.work-empty{
+  border-style:dashed;
+  opacity:.85;
+}
+
+/* 이력서 */
+.doc-list{display:grid;gap:12px;margin:1.5rem 0}
+.doc-item{
+  border:1px solid var(--line);
+  background:#101c20;
+  padding:18px;
+}
+.doc-title{
+  font-family:"Noto Sans KR",sans-serif;
+  font-size:1.05rem;
+  color:var(--green);
+  margin:0 0 6px;
+  text-shadow:none;
+}
+.doc-desc{
+  font-size:.9rem;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+/* 공통 링크 */
+.links{
+  margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.links a{
+  color:var(--amber);font-size:.81rem;text-underline-offset:4px;
+  overflow-wrap:anywhere;word-break:break-word;max-width:100%;
+}
+.links a::before{content:"↗ ";color:var(--green)}
+
+/* 페이지 이동 버튼 */
+.pager{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.pager button{
+  border:1px solid var(--line);background:transparent;color:var(--text);
+  min-height:36px;padding:0 12px;cursor:pointer;
+}
+.pager button:hover{border-color:var(--green);color:var(--green)}
+
+body.reduce-motion *{animation:none !important;transition:none !important}
+body.reduce-motion .story-body .cli-line{opacity:1;transform:none}
+
+@media(max-width:700px){
+  .terminal{width:100%;height:100%;border-width:0}
+  .screen{padding:16px}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+}
