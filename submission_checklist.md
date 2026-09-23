@@ -4,7 +4,7 @@
 > 제출 전에 이 문서를 확인한다.
 
 **배포 URL**: https://sktassignrba-a-open-career.vercel.app/
-**저장소**: https://github.com/dyj02056/sktassignrba_a_open_career
+**저장소**: [https://github.com/dyj02056/sktassignrba_a_open_career](https://github.com/dyj02056/sktassignrba_a_open_career/commit/6284f242bc5184959ac574b770669661cc2962aa)
 
 ---
 
