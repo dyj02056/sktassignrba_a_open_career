@@ -67,7 +67,7 @@
       </div>
     </section>
 
-    <!-- 숫자 (자리만) -->
+    <!-- 숫자 -->
     <section class="screen" id="numbers" aria-labelledby="numbers-title">
       <div class="page-head">
         <button class="back" type="button" data-page="home">← cd ~/</button>
@@ -75,8 +75,45 @@
         <h1 id="numbers-title">숫자</h1>
         <p class="subtitle">13주 기록</p>
       </div>
-      <div class="story-body">
-        <p>(다음 단계에서 채웁니다)</p>
+      <div class="story-body" id="numbers-body">
+        <p class="cli-line">2026년 8월 11일부터 9월 23일까지, 13주 과정의 기록입니다.</p>
+
+        <div class="numbers-grid">
+          <div class="num-card">
+            <p class="num-value">96.8%</p>
+            <p class="num-label">출석률</p>
+            <p class="num-source">출처: 내 출석 기록</p>
+          </div>
+          <div class="num-card">
+            <p class="num-value">30 / 31</p>
+            <p class="num-label">출석 / 재적일</p>
+            <p class="num-source">출처: 내 출석 기록</p>
+          </div>
+          <div class="num-card">
+            <p class="num-value">1</p>
+            <p class="num-label">지각</p>
+            <p class="num-source">출처: 내 출석 기록 (2026-08-12)</p>
+          </div>
+          <div class="num-card">
+            <p class="num-value">31 · 30</p>
+            <p class="num-label">아침 · 마무리 리추얼</p>
+            <p class="num-source">출처: 리추얼 기록</p>
+          </div>
+          <div class="num-card">
+            <p class="num-value">11</p>
+            <p class="num-label">과제 최종 확인 완료</p>
+            <p class="num-source">출처: 내 제출 현황</p>
+          </div>
+          <div class="num-card">
+            <p class="num-value">0</p>
+            <p class="num-label">결석 · 미제출</p>
+            <p class="num-source">출처: 내 출석 기록 · 내 제출 현황</p>
+          </div>
+        </div>
+
+        <p class="cli-line">그 숫자 중 하나를 고난 장면과 짝지어 봅니다. 지각 1회는 2026년 8월 12일, lsm 홈페이지에 다른 사람 계정으로 로그인되어 있던 것을 늦게 발견하고 로그아웃·재로그인하느라 생긴 지각이었습니다. 그날 리추얼에는 "로그인이 안 되어 있다는 것을 설명해줘서 바로 고치고 로그인할 수 있었다"고 적었습니다. 그 1회를 빼면 출석은 30/30입니다.</p>
+
+        <p class="cli-line">숫자는 작습니다. 하지만 13주 동안 쌓인 기록입니다.</p>
       </div>
       <div class="pager">
         <button type="button" data-page="story">← previous: story</button>
@@ -84,7 +121,7 @@
       </div>
     </section>
 
-    <!-- 대표작 (자리만) -->
+    <!-- 대표작 -->
     <section class="screen" id="works" aria-labelledby="works-title">
       <div class="page-head">
         <button class="back" type="button" data-page="home">← cd ~/</button>
@@ -92,8 +129,26 @@
         <h1 id="works-title">대표작</h1>
         <p class="subtitle">논문 그리고 앱</p>
       </div>
-      <div class="story-body">
-        <p>(다음 단계에서 채웁니다)</p>
+      <div class="story-body" id="works-body">
+        <p class="cli-line">대표작 자리에는 논문 하나와, 아직 비어 있는 앱 자리 하나가 있습니다.</p>
+
+        <article class="work-item">
+          <p class="work-label">논문</p>
+          <h2 class="work-title">LLM은 새로운 개념을 어떻게 학습하는가</h2>
+          <p class="work-sub">공식 중심 설명과 스토리 중심 설명의 효과 비교</p>
+          <p class="work-meta">2026-09-22 · 정성원</p>
+          <p class="work-desc">사전지식을 차단하기 위해 가상의 최적화 알고리즘(Wave Descent)을 개발하고, 공식 중심 설명과 스토리 중심 설명의 효과를 ChatGPT·DeepSeek·Gemini 대상 총 30회 실험으로 비교했습니다. 응용 문제에서는 천장 효과로 검증되지 않았으나, 탐색적 분석에서 재설명·비유 생성에 스토리 중심 설명이 더 높은 점수를 보였습니다.</p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener noreferrer">논문 보기 (URL 확인 필요)</a>
+          </div>
+        </article>
+
+        <article class="work-item work-empty">
+          <p class="work-label">앱</p>
+          <h2 class="work-title">13번 앱</h2>
+          <p class="work-sub">2026-09-27 예정</p>
+          <p class="work-desc">이 자리는 아직 비어 있습니다. 13번 과제를 마친 뒤 채웁니다.</p>
+        </article>
       </div>
       <div class="pager">
         <button type="button" data-page="numbers">← previous: numbers</button>
@@ -101,7 +156,7 @@
       </div>
     </section>
 
-    <!-- 이력서 (자리만) -->
+    <!-- 이력서 -->
     <section class="screen" id="resume" aria-labelledby="resume-title">
       <div class="page-head">
         <button class="back" type="button" data-page="home">← cd ~/</button>
@@ -109,8 +164,25 @@
         <h1 id="resume-title">이력서</h1>
         <p class="subtitle">이력서 · 자기소개서 · 경력기술서</p>
       </div>
-      <div class="story-body">
-        <p>(다음 단계에서 채웁니다)</p>
+      <div class="story-body" id="resume-body">
+        <p class="cli-line">지원용 문서 세 가지를 함께 냅니다.</p>
+
+        <div class="doc-list">
+          <article class="doc-item">
+            <h2 class="doc-title">이력서</h2>
+            <p class="doc-desc">이름, 연락처, 13주 과제와 기간.</p>
+          </article>
+          <article class="doc-item">
+            <h2 class="doc-title">자기소개서</h2>
+            <p class="doc-desc">이야기 본편을 자기소개서 분량으로 다듬은 글.</p>
+          </article>
+          <article class="doc-item">
+            <h2 class="doc-title">경력기술서</h2>
+            <p class="doc-desc">과제 4·6·1·5·8과 13주 기록을 세 능력(자기조절력·대인관계력·자기동기력)에 맞춰 정리한 글.</p>
+          </article>
+        </div>
+
+        <p class="cli-line">문의: swj46422@gmail.com</p>
       </div>
       <div class="pager">
         <button type="button" data-page="works">← previous: works</button>
