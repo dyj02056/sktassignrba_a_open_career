@@ -4,7 +4,7 @@
 > 이 문서는 BR-A를 진행한 모든 과정을 시간 순서대로 기록한 것이다.
 
 **배포 URL**: https://sktassignrba-a-open-career.vercel.app/
-**저장소**: https://github.com/dyj02056/sktassignrba_a_open_career
+**저장소**: [https://github.com/dyj02056/sktassignrba_a_open_career](https://github.com/dyj02056/sktassignrba_a_open_career/commit/6284f242bc5184959ac574b770669661cc2962aa)
 
 ---
 
